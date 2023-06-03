@@ -3,8 +3,10 @@ const Products = require('../models/ProductsModel')
 module.exports = class ProductsController {
 
 
-    static controllerShowProducts (req, res) {
-        res.render('products/all')
+    static async controllerShowProducts (req, res) {
+        const showProducts = await Products.getProducts()
+        
+        res.render('products/all', {showProducts})
     }
 
     static createProducts (req, res){
@@ -13,13 +15,14 @@ module.exports = class ProductsController {
 
     static createProductsPost (req, res){
 
-        const {name, price, desciption} = req.body
+        const {name, price, image, description} = req.body
 
-        const product = new Products(name, price, desciption)
+        const product = new Products(name, price, image, description)
 
         product.save()
 
         res.redirect('/products')
     }
+
 
 }

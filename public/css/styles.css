@@ -66,3 +66,23 @@ form {
   margin-top: 1em;
   cursor: pointer;
 }
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product{
+  width: 23%;
+  margin: 1%;
+  margin-bottom: 1em;
+}
+
+.product img{
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.product p{
+  margin: 0.5em auto;
+}
