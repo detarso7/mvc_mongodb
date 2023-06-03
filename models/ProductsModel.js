@@ -39,6 +39,12 @@ class ProductsModel {
             const products = Service.showProductsService(search)
 
             return products
+        }
+
+        static async deleteProduct (id){
+            
+            await conn.db().collection('Produtos').deleteOne({_id: ObjectId(id)})
+
         } 
 }
 
