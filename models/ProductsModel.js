@@ -1,5 +1,6 @@
 const { ObjectId } = require('mongodb')
 const conn = require('../db/conn')
+const Service = require('../service/service')
 
 class ProductsModel {
     constructor (name, price, image, description){
@@ -35,8 +36,7 @@ class ProductsModel {
         } 
 
         static async searchProduct (search){
-            const regex = new RegExp(search, 'i');
-            const products = await conn.db().collection('Produtos').find({name: {$regex: regex}}).toArray()
+            const products = Service.showProductsService(search)
 
             return products
         } 
