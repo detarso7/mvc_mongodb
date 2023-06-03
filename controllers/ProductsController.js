@@ -5,7 +5,7 @@ module.exports = class ProductsController {
 
     static async controllerShowProducts (req, res) {
         const showProducts = await Products.getProducts()
-        
+                
         res.render('products/all', {showProducts})
     }
 
@@ -24,5 +24,22 @@ module.exports = class ProductsController {
         res.redirect('/products')
     }
 
+    static async controllerGetProducts(req, res){
+        const id = req.params.id
+
+        const showProduct = await Products.getProduct(id)
+
+        res.render('products/product', {showProduct})
+
+
+    }
+
+        // static async controllerSearchProducts(req, res){
+        //     const id = req.body.id
+
+        //     showProduct = Products.getProduct(id)
+
+        //     res.redirect('/products', {showProduct})
+        // }
 
 }

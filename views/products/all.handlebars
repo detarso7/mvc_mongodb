@@ -1,12 +1,18 @@
 <h1>Produtos Atualizado</h1>
 
+<form action="/products" method="POST">
+    <input type="hidden" name="id" value="{{showProducts._id}}">
+    <input type="text" placeholder="Insira um nome de produto">
+    <input type="button" type="submit" value="Pesquisar">
+</form>
+
 <div class="products">
     {{#each showProducts}}
         <div class="product">
             <img src="{{this.image}}" alt="{{this.name}}">
             <h4>Produto: {{this.name}}</h4>
             <p>Preço: R${{this.price}}</p> 
-            <p>Descrição: {{this.description}}</p>
+            <a href="/products/{{this._id}}">Ver mais</a>
         </div>
     {{/each}}
 </div>

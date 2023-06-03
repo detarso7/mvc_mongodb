@@ -1,3 +1,4 @@
+const { ObjectId } = require('mongodb')
 const conn = require('../db/conn')
 
 class ProductsModel {
@@ -27,6 +28,11 @@ class ProductsModel {
             return products
         } 
          
+        static async getProduct (id){
+            const products = await conn.db().collection('Produtos').findOne({_id: ObjectId(id)})
+
+            return products
+        } 
 
 }
 
