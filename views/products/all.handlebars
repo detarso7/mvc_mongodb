@@ -1,18 +1,32 @@
 <h1>Produtos Atualizado</h1>
 
-<form action="/products" method="POST">
-    <input type="hidden" name="id" value="{{showProducts._id}}">
-    <input type="text" placeholder="Insira um nome de produto">
-    <input type="button" type="submit" value="Pesquisar">
+<form action="/products/search" method="POST">
+    <input type="text" name="search" placeholder="Insira um nome de produto">
+    <input type="button" value="Pesquisar">
+    <a href="/products">Limpar</a>
 </form>
 
 <div class="products">
-    {{#each showProducts}}
-        <div class="product">
-            <img src="{{this.image}}" alt="{{this.name}}">
-            <h4>Produto: {{this.name}}</h4>
-            <p>Preço: R${{this.price}}</p> 
-            <a href="/products/{{this._id}}">Ver mais</a>
-        </div>
-    {{/each}}
+
+
+    {{#if showProducts}}
+        {{#each showProducts}}
+            <div class="product">
+                <img src="{{this.image}}" alt="{{this.name}}">
+                <h4>Produto: {{this.name}}</h4>
+                <p>Preço: R${{this.price}}</p> 
+                <a href="/products/{{this._id}}">Ver mais</a>
+            </div>
+        {{/each}}
+    {{else}}
+        {{#each showProduct}}
+            <div class="product">
+                <img src="{{this.image}}" alt="{{this.name}}">
+                <h4>Produto: {{this.name}}</h4>
+                <p>Preço: R${{this.price}}</p> 
+                <a href="/products/{{this._id}}">Ver mais</a>
+            </div>
+        {{/each}}
+    {{/if}}
+
 </div>

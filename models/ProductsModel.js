@@ -28,12 +28,18 @@ class ProductsModel {
             return products
         } 
          
-        static async getProduct (id){
+        static async showProduct (id){
             const products = await conn.db().collection('Produtos').findOne({_id: ObjectId(id)})
 
             return products
         } 
 
+        static async searchProduct (search){
+            const regex = new RegExp(search, 'i');
+            const products = await conn.db().collection('Produtos').find({name: {$regex: regex}}).toArray()
+
+            return products
+        } 
 }
 
 module.exports = ProductsModel

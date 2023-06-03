@@ -27,19 +27,19 @@ module.exports = class ProductsController {
     static async controllerGetProducts(req, res){
         const id = req.params.id
 
-        const showProduct = await Products.getProduct(id)
+        const showProduct = await Products.showProduct(id)
 
         res.render('products/product', {showProduct})
 
 
     }
 
-        // static async controllerSearchProducts(req, res){
-        //     const id = req.body.id
+    static async controllerSearchProducts(req, res) {
+        const search = req.body.search;
+        const showProducts = await Products.searchProduct(search);
 
-        //     showProduct = Products.getProduct(id)
+        res.render('products/all', {showProducts});
 
-        //     res.redirect('/products', {showProduct})
-        // }
+      }
 
 }
