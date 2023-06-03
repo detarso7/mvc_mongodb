@@ -20,5 +20,6 @@ app.use(
 app.use(express.json());
 
 app.use('/products', productsRoutes)
+app.use('/', productsRoutes)
 
 app.listen(3000)
