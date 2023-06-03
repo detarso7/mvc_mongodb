@@ -23,27 +23,38 @@ class ProductsModel {
         return product
     }
 
+        // GET Todos os Podutos
         static async getProducts (){
             const products = await conn.db().collection('Produtos').find().toArray()
 
             return products
         } 
          
+        // GET Produto Unico
         static async showProduct (id){
             const products = await conn.db().collection('Produtos').findOne({_id: ObjectId(id)})
 
             return products
         } 
 
+        // Busca de Produtos
         static async searchProduct (search){
             const products = Service.showProductsService(search)
 
             return products
         }
 
+        // Exclusão de Produtos
         static async deleteProduct (id){
-            
+
             await conn.db().collection('Produtos').deleteOne({_id: ObjectId(id)})
+
+        }
+
+        // Atualização de Produtos
+        static async upDateProduct (id, product){
+            
+            await conn.db().collection('Produtos').updateOne({_id: ObjectId(id)}, {$set: product})
 
         } 
 }

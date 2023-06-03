@@ -1,4 +1,5 @@
 <h1>Produto: {{showProduct.name}}</h1>
+<a href="/products">Voltar</a>
 
 <div class="products">
 
@@ -7,10 +8,10 @@
             <h4>Produto: {{showProduct.name}}</h4>
             <p>Preço: R${{showProduct.price}}</p>
             <p>Descrição: {{showProduct.description}}</p>
-            <a href="/products">Voltar</a>
             <form action="/products/delete/{{showProduct._id}}" method="POST">
-                <input type="submit" value="Exluir">
+                <input type="submit" value="Exluir" class="btn">
             </form>
+            <a href="/products/edit/{{showProduct._id}}">Editar</a>
         </div>
 
 </div>
