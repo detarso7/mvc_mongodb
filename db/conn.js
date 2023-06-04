@@ -1,7 +1,14 @@
-const {MongoClient} = require('mongodb')
-const uri = 'mongodb://localhost:27017/testemongodb2'
+require("dotenv").config()
+const {MongoClient, ServerApiVersion} = require('mongodb')
+const uri = process.env.DB
 
-const client = new MongoClient(uri)
+const client = new MongoClient(uri, {
+   serverApi: {
+     version: ServerApiVersion.v1,
+     strict: true,
+     deprecationErrors: true,
+   }
+ });
 
 async function run (){
  try {
