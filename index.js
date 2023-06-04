@@ -3,7 +3,8 @@ const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
 
-const conn = require("./db/conn").run;
+const connectDataBase = require('./db/conn')
+//const conn = require("./db/conn").run;
 
 const productsRoutes = require('./routes/productsRoutes')
 
@@ -18,9 +19,11 @@ app.use(
   })
 );
 
+connectDataBase()
 app.use(express.json());
 
 app.use('/products', productsRoutes)
 app.use('/', productsRoutes)
+
 
 app.listen(3000)
