@@ -16,5 +16,8 @@
     "express-handlebars": "^5.3.3",
     "mongodb": "^4.1.1",
     "nodemon": "^2.0.12"
+  },
+  "engines": {
+    "node": "14.17.4"
   }
 }
