@@ -11,7 +11,7 @@
     "start": "nodemon ./index.js localhost 3000"
   },
   "keywords": [],
-  "author": "Matheus",
+  "author": "Saulo de Tarso",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.1.3",

@@ -1,11 +1,15 @@
+require("dotenv").config()
 const mongoose = require('mongoose')
 
+const DB = process.env.DB
+
 const connectDataBase = () => {
-   mongoose.connect(
-      "mongodb+srv://root:root@cluster0.gfmurfr.mongodb.net/prodtucts?retryWrites=true&w=majority", {
+   mongoose.connect(DB, {
       useNewUrlParser: true,
       useUnifiedTopology: true
-   }).then(() => console.log('MondoDB conectado!!!')).catch((error) => console.log(error))
+   })
+   .then(() => console.log('MondoDB conectado!!!'))
+   .catch((error) => console.log(error))
 }
 
 module.exports = connectDataBase
